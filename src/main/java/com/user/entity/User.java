@@ -8,8 +8,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(nullable = false, length = 100)
-    private String name;
+    @Column(unique = true, nullable = false, length = 100)
+    private String username;
 
     @Column(nullable = false, length = 60)
     private String password;
@@ -21,9 +21,9 @@ public class User {
         super();
     }
 
-    public User(int id, String name, String password, String city) {
+    public User(int id, String username, String password, String city) {
         this.id = id;
-        this.name = name;
+        this.username = username;
         this.password = password;
         this.city = city;
     }
@@ -37,11 +37,11 @@ public class User {
     }
 
     public String getName() {
-        return name;
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String username) {
+        this.username = this.username;
     }
 
     public String getPassword() {
@@ -64,7 +64,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + username + '\'' +
                 ", city='" + city + '\'' +
                 '}';
     }
