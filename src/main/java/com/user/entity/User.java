@@ -12,7 +12,7 @@ public class User {
     private String username;
 
     @Column(nullable = false, length = 60)
-    private String password;
+    private String passwordHash;
 
     @Column(nullable = false, length = 100)
     private String city;
@@ -24,7 +24,7 @@ public class User {
     public User(int id, String username, String password, String city) {
         this.id = id;
         this.username = username;
-        this.password = password;
+        this.passwordHash = password;
         this.city = city;
     }
 
@@ -44,12 +44,12 @@ public class User {
         this.username = this.username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     public String getCity() {

@@ -23,12 +23,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         if(Objects.isNull(this.sessionFactory.getCurrentSession().find(User.class, user.getId()))) {
             this.sessionFactory.getCurrentSession().persist(user);
         } else {
             this.sessionFactory.getCurrentSession().merge(user);
         }
+        return user;
     }
 
     @Override
