@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -30,6 +31,16 @@ public class UserDaoImpl implements UserDao {
             this.sessionFactory.getCurrentSession().merge(user);
         }
         return user;
+    }
+
+    @Override
+    public User getUser(int userId) {
+        return this.sessionFactory.getCurrentSession().find(User.class, userId);
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return this.sessionFactory.getCurrentSession().createQuery("FROM User", User.class).getResultList();
     }
 
     @Override
