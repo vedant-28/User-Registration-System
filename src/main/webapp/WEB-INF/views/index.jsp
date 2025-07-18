@@ -25,7 +25,7 @@
         				<c:forEach items="${ userList }" var="u">
         					<tr>
         						<th scope="row">${ u.id }</th>
-        							<td>${ u.username }</td>
+        							<td>${ u.name }</td>
         							<td>${ u.city }</td>
         							<td class="py-2">
           						</td>

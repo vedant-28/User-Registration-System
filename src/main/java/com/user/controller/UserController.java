@@ -37,19 +37,20 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegisterForm(Model model) {
-        model.addAttribute("userForm", new User());
+        model.addAttribute("userDetails", new User());
         return "register";
     }
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("userDetails") User userDetails, Model model) {
+        System.out.println("Received user: " + userDetails); // print user to console
+        System.out.println("Name: " + userDetails.getName() + ", City: " + userDetails.getCity());
         try {
-            userService.registerUser(userDetails.getId(),
-                                     userDetails.getName(),
+            userService.registerUser(userDetails.getName(),
                                      userDetails.getPasswordHash(),
                                      userDetails.getCity());
             model.addAttribute("message", "Registration successful!");
-            return "index";
+            return "redirect:/";
         } catch (Exception e) {
             model.addAttribute("message", "Something went wrong!");
             return "register";

@@ -24,9 +24,9 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     @Override
-    public User registerUser(int id, String username, String rawPassword, String city) {
+    public User registerUser(String username, String rawPassword, String city) {
         String hashPassword = passwordEncoder.encode(rawPassword);
-        return userDaoImpl.save(new User(id, username, hashPassword, city));
+        return userDaoImpl.save(new User(username, hashPassword, city));
     }
 
     @Override

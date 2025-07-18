@@ -6,12 +6,12 @@ import jakarta.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
-    @Column(unique = true, nullable = false, length = 100)
+    @Column(name = "username", unique = true, nullable = false, length = 100)
     private String username;
 
-    @Column(nullable = false, length = 60)
+    @Column(name = "passwordHash", nullable = false, length = 60)
     private String passwordHash;
 
     @Column(nullable = false, length = 100)
@@ -21,8 +21,7 @@ public class User {
         super();
     }
 
-    public User(int id, String username, String password, String city) {
-        this.id = id;
+    public User(String username, String password, String city) {
         this.username = username;
         this.passwordHash = password;
         this.city = city;
@@ -32,7 +31,7 @@ public class User {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,7 +40,7 @@ public class User {
     }
 
     public void setName(String username) {
-        this.username = this.username;
+        this.username = username;
     }
 
     public String getPasswordHash() {

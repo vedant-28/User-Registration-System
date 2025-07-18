@@ -12,7 +12,7 @@
         <a class="navbar-brand text-light">User Registration Home</a>
         <form class="d-flex" role="search">
            <div class="container text-center">
-                <a href="${ pageContext.request.contextPath }/" class="btn btn-success mx-2">Home</a>
+                <a href="${ pageContext.request.contextPath }/" class="btn btn-primary mx-2">Home</a>
            </div>
         </form>
       </div>
