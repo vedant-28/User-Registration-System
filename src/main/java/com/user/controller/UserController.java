@@ -62,6 +62,7 @@ public class UserController {
         return "login";
     }
 
+    @PostMapping("/login")
     public String loginUser(@ModelAttribute("userLoginDetails") User userLoginDetails, Model model) {
         Optional<User> authenticatedUser = userService.authenticateUser(userLoginDetails.getName(),
                                                                userLoginDetails.getPasswordHash());
