@@ -36,16 +36,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(int userId, Model model) {
-        User user = userDaoImpl.getUser(userId);
-        model.addAttribute(user);
-        return user;
+    public User getUserById(int userId) {
+        return userDaoImpl.getUser(userId);
     }
 
     @Override
-    public List<User> getAllUsers(Model model) {
-        List<User> userList = userDaoImpl.getUsers();
-        model.addAttribute(userList);
-        return userList;
+    public List<User> getAllUsers() {
+        return userDaoImpl.getUsers();
     }
 }

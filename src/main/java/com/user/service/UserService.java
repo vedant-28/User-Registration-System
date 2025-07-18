@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface UserService {
     public User registerUser(int id, String username, String rawPassword, String city);
     public Optional<User> authenticateUser(String username, String rawPassword);
-    public User getUserById(int userId, Model model);
-    public List<User> getAllUsers(Model model);
+    public User getUserById(int userId);
+    public List<User> getAllUsers();
 }
