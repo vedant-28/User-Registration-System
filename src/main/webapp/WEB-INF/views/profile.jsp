@@ -8,9 +8,9 @@
     <body>
         <%@ include file="./navbar-home.jsp" %>
         <div class="container mt-5">
-            <h2>Welcome, ${ user.username }!</h2>
-            <h3>User ID: ${ user.id }</h3>
-            <h3>City: ${ user.city }</h3>
+            <h2>Welcome, ${ authenticatedUser.name }!</h2>
+            <h3>User ID: ${ authenticatedUser.id }</h3>
+            <h3>City: ${ authenticatedUser.city }</h3>
             <div class="container text-center">
                 <a href="${ pageContext.request.contextPath }/" class="btn btn-warning mx-2">Logout</a>
             </div>

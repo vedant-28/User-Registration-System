@@ -15,10 +15,6 @@
                   action="register"
                   class="row g-3">
               <div class="col-md-6">
-                 <label hidden="true" for="id" class="form-label">User ID</label>
-                 <input type="hidden" placeholder="Enter numerical id only" type="number" class="form-control" id="id" name="id">
-              </div>
-              <div class="col-md-6">
                  <label for="username" class="form-label">Username</label>
                  <input type="text" class="form-control" id="name" name="name">
               </div>

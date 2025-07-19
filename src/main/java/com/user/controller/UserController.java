@@ -43,8 +43,6 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerUser(@ModelAttribute("userDetails") User userDetails, Model model) {
-        System.out.println("Received user: " + userDetails); // print user to console
-        System.out.println("Name: " + userDetails.getName() + ", City: " + userDetails.getCity());
         try {
             userService.registerUser(userDetails.getName(),
                                      userDetails.getPasswordHash(),
@@ -59,21 +57,23 @@ public class UserController {
 
     @GetMapping("/login")
     public String showLoginForm(Model model) {
-        model.addAttribute("loginForm", new User());
+        model.addAttribute("userLoginDetails", new User());
         return "login";
     }
 
     @PostMapping("/login")
     public String loginUser(@ModelAttribute("userLoginDetails") User userLoginDetails, Model model) {
+        System.out.println("Received user: " + userLoginDetails); // print user to console
+        System.out.println("Name: " + userLoginDetails.getName() + ", PasswordHash: " + userLoginDetails.getPasswordHash());
+
         Optional<User> authenticatedUser = userService.authenticateUser(userLoginDetails.getName(),
                                                                userLoginDetails.getPasswordHash());
         if (authenticatedUser.isPresent()) {
-            model.addAttribute("user", authenticatedUser.get());
+            model.addAttribute("authenticatedUser", authenticatedUser.get());
             return "profile";
         } else {
             model.addAttribute("error", "Invalid credentials!");
             return "login";
         }
     }
-
 }

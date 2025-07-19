@@ -36,8 +36,19 @@
   <request-character-encoding>UTF-8</request-character-encoding>
   <response-character-encoding>UTF-8</response-character-encoding>
 
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>SecureApp</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
 
-  <!-- ================== Built In Servlet Definitions ==================== -->
+
+
+    <!-- ================== Built In Servlet Definitions ==================== -->
 
 
   <!-- The default servlet for all web applications, that serves static     -->
